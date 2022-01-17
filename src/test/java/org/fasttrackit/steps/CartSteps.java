@@ -8,13 +8,15 @@ import org.fasttrackit.pages.OrderPage;
 import org.fasttrackit.pages.ProductPage;
 import org.junit.Assert;
 
-public class CartSteps extends ScenarioSteps {
+public class CartSteps extends BaseSteps {
 
-    private CheckoutPage checkoutPage;
-    private ProductPage productPage;
-    private CartPage cartPage;
-    private OrderPage orderPage;
 
+    @Step
+    public void navigateToCart(){
+        homePage.clickOnCartIcon();
+        homePage.clickOnViewShoppingCartLink();
+
+    }
 
     @Step
     public void clickAddProductToCart() {
@@ -40,5 +42,15 @@ public class CartSteps extends ScenarioSteps {
     public void checkPrepareOrder(String expected) {
         String message = orderPage.getOrderConfirmationMessage();
         Assert.assertEquals(expected, message);
+    }
+
+    @Step
+    public void checkSubtotalPriceIsDisplayedCorrectly(){
+        Assert.assertTrue("The subtotal price is not correct!",cartPage.isSubtotalPriceCorrect());
+    }
+
+    @Step
+    public void checkGrandTotalPriceIsCorrect(){
+        Assert.assertTrue("Total price not correct", cartPage.isGrandTotalPriceCorrect());
     }
 }

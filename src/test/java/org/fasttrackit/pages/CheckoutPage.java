@@ -6,7 +6,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 
 
-public class CheckoutPage extends PageObject {
+public class CheckoutPage extends BasePage {
 
     @FindBy(id = "billing:use_for_shipping_yes")
     private WebElementFacade shipToThisAddressButton;

@@ -8,11 +8,7 @@ import org.fasttrackit.pages.OrderPage;
 import org.fasttrackit.pages.ProductPage;
 import org.junit.Assert;
 
-public class ProductSteps extends ScenarioSteps {
-
-    private ProductPage productPage;
-    private CartPage cartPage;
-
+public class ProductSteps extends BaseSteps {
 
 
     @Step
@@ -26,4 +22,6 @@ public class ProductSteps extends ScenarioSteps {
     public void checkAddToCart(String expected) {
         String message = cartPage.getCartMessageParagraph();
         Assert.assertEquals(expected, message);
-}}
+}
+
+}

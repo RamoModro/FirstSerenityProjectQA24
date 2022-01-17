@@ -6,10 +6,7 @@ import org.fasttrackit.pages.HomePage;
 import org.fasttrackit.pages.SearchResultsPage;
 import org.junit.Assert;
 
-public class SearchSteps extends ScenarioSteps {
-
-    private HomePage homePage;
-    private SearchResultsPage searchResultsPage;
+public class SearchSteps extends BaseSteps {
 
     @Step
     public void executeSearch(String keyword){
@@ -27,4 +24,12 @@ public class SearchSteps extends ScenarioSteps {
         executeSearch(productName);
         findAndOpenProduct(productName);
     }
+
+    @Step
+    public void sortProductByPrice(){
+        searchResultsPage.selectDropDownValue();
+        Assert.assertTrue(searchResultsPage.isPriceAscending());
+    }
+
+
 }
